@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+// Route::get('/test', function () {
+//     return view('test');
+// });
+
+Route::group(['middleware' => ['web']], function () {
+    // your routes here
+    Route::get('/test', function () {
+        return view('test');
+    });
+});
